@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package obb.aps;
 
 import java.awt.Font;
@@ -14,11 +11,10 @@ import java.awt.Font;
 public class OBB extends javax.swing.JFrame {
 
     private int tamanhofont = 18;
-    private int aux=0;
+    private int aux = 0;//Variavel Para saber se esta em negrito
+    private int fonx = 0;//Identificado DE font 1.Serif/2.Sansserif/3.Monospaced
 
-    /**
-     * Creates new form OBB
-     */
+    
     public OBB() {
         initComponents();
     }
@@ -138,41 +134,80 @@ public class OBB extends javax.swing.JFrame {
 
     private void fontupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontupActionPerformed
         // TODO add your handling code here:
-        
-        tamanhofont++;
-        areatexto.setFont(new Font("Defaut",Font.PLAIN,tamanhofont));
+         if(fonx==0){
+            if(aux==0){tamanhofont++; areatexto.setFont(new Font("Ariel",Font.PLAIN,tamanhofont));}
+            else{tamanhofont++; areatexto.setFont(new Font("Ariel ",Font.BOLD,tamanhofont));}}
+        if(fonx==1){
+            if(aux==0){tamanhofont++; areatexto.setFont(new Font("Serif",Font.PLAIN,tamanhofont));}
+            else{tamanhofont++; areatexto.setFont(new Font("Serif ",Font.BOLD,tamanhofont));}}
+        if(fonx==2){
+            if(aux==0){tamanhofont++; areatexto.setFont(new Font("Sansserif",Font.PLAIN,tamanhofont));}
+            else{tamanhofont++; areatexto.setFont(new Font("Sansserif ",Font.BOLD,tamanhofont));}}
+        if(fonx==3){
+            if(aux==0){tamanhofont++; areatexto.setFont(new Font("Monospaced",Font.PLAIN,tamanhofont));}
+            else{tamanhofont++; areatexto.setFont(new Font("Monospaced",Font.BOLD,tamanhofont));}}
     }//GEN-LAST:event_fontupActionPerformed
 
     private void jNegritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNegritoActionPerformed
-        if(aux==0){
-        areatexto.setFont(new Font("Defaut",Font.BOLD,tamanhofont));
-        aux=1;
-        }
-        else{areatexto.setFont(new Font("Defaut",Font.PLAIN,tamanhofont));
-        aux=0;}
+        if(fonx==0){
+            if(aux==0){areatexto.setFont(new Font("Ariel",Font.BOLD,tamanhofont));aux=1;}
+            else{areatexto.setFont(new Font("Ariel ",Font.PLAIN,tamanhofont));}aux=0;}
+        if(fonx==1){
+            if(aux==0){areatexto.setFont(new Font("Serif",Font.BOLD,tamanhofont));aux=1;}
+            else{areatexto.setFont(new Font("Serif ",Font.PLAIN,tamanhofont));}aux=0;}
+        if(fonx==2){
+            if(aux==0){areatexto.setFont(new Font("Sansserif",Font.BOLD,tamanhofont));aux=1;}
+            else{areatexto.setFont(new Font("Sansserif ",Font.PLAIN,tamanhofont));}aux=0;}
+        if(fonx==3){
+            if(aux==0){areatexto.setFont(new Font("Monospaced",Font.BOLD,tamanhofont));aux=1;}
+            else{areatexto.setFont(new Font("Monospaced",Font.PLAIN,tamanhofont));}aux=0;}
+        
     }//GEN-LAST:event_jNegritoActionPerformed
 
     private void jSerifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSerifActionPerformed
         // TODO add your handling code here:
-        
+        if(aux==0){
         areatexto.setFont(new Font("Serif",Font.PLAIN,tamanhofont));
-        
+        fonx=1;}
+        else{
+        areatexto.setFont(new Font("Serif",Font.BOLD,tamanhofont));
+        fonx=1;}
     }//GEN-LAST:event_jSerifActionPerformed
 
     private void fontdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontdownActionPerformed
         // TODO add your handling code here:
-         tamanhofont--;
-        areatexto.setFont(new Font("Defaut",Font.PLAIN,tamanhofont));
+        if(fonx==0){
+            if(aux==0){tamanhofont--; areatexto.setFont(new Font("Ariel",Font.PLAIN,tamanhofont));}
+            else{tamanhofont--; areatexto.setFont(new Font("Ariel ",Font.BOLD,tamanhofont));}}
+        if(fonx==1){
+            if(aux==0){tamanhofont--; areatexto.setFont(new Font("Serif",Font.PLAIN,tamanhofont));}
+            else{tamanhofont--; areatexto.setFont(new Font("Serif ",Font.BOLD,tamanhofont));}}
+        if(fonx==2){
+            if(aux==0){tamanhofont--; areatexto.setFont(new Font("Sansserif",Font.PLAIN,tamanhofont));}
+            else{tamanhofont--; areatexto.setFont(new Font("Sansserif ",Font.BOLD,tamanhofont));}}
+        if(fonx==3){
+            if(aux==0){tamanhofont--; areatexto.setFont(new Font("Monospaced",Font.PLAIN,tamanhofont));}
+            else{tamanhofont--; areatexto.setFont(new Font("Monospaced",Font.BOLD,tamanhofont));}}
     }//GEN-LAST:event_fontdownActionPerformed
 
     private void jSansSerifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSansSerifActionPerformed
         // TODO add your handling code here:
-        areatexto.setFont(new Font("SansSerif",Font.PLAIN,tamanhofont));
+        if(aux==0){
+        areatexto.setFont(new Font("Sansserif",Font.PLAIN,tamanhofont));
+        fonx=2;}
+        else{
+        areatexto.setFont(new Font("Sansserif",Font.BOLD,tamanhofont));
+        fonx=2;}
     }//GEN-LAST:event_jSansSerifActionPerformed
 
     private void jMonospacedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMonospacedActionPerformed
         // TODO add your handling code here:
-         areatexto.setFont(new Font("Monospaced",Font.PLAIN,tamanhofont));
+         if(aux==0){
+        areatexto.setFont(new Font("Monospaced",Font.PLAIN,tamanhofont));
+        fonx=3;}
+        else{
+        areatexto.setFont(new Font("Monospaced",Font.BOLD,tamanhofont));
+        fonx=3;}
     }//GEN-LAST:event_jMonospacedActionPerformed
 
     /**
